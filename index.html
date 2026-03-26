@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Interactivo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>CRM Interactivo</h1>
+        <p>Gestiona leads, clientes y seguimiento comercial en tiempo real.</p>
+      </div>
+      <button id="themeToggle" class="btn secondary">🌙 Tema oscuro</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel kpis" aria-label="Indicadores">
+        <article>
+          <h2>Leads activos</h2>
+          <strong id="kpiLeads">0</strong>
+        </article>
+        <article>
+          <h2>Ingresos potenciales</h2>
+          <strong id="kpiRevenue">€0</strong>
+        </article>
+        <article>
+          <h2>Tareas pendientes</h2>
+          <strong id="kpiTasks">0</strong>
+        </article>
+      </section>
+
+      <section class="panel form-panel" aria-label="Crear o editar contacto">
+        <h2 id="formTitle">Nuevo contacto</h2>
+        <form id="contactForm">
+          <input type="hidden" id="contactId" />
+          <label>
+            Nombre
+            <input id="name" required placeholder="Ej. Ana López" />
+          </label>
+          <label>
+            Empresa
+            <input id="company" required placeholder="Ej. Innovatech" />
+          </label>
+          <label>
+            Email
+            <input id="email" type="email" required placeholder="nombre@empresa.com" />
+          </label>
+          <label>
+            Teléfono
+            <input id="phone" required placeholder="+34 612 345 678" />
+          </label>
+          <div class="grid-2">
+            <label>
+              Estado
+              <select id="status" required>
+                <option value="lead">Lead</option>
+                <option value="contactado">Contactado</option>
+                <option value="propuesta">Propuesta</option>
+                <option value="cliente">Cliente</option>
+              </select>
+            </label>
+            <label>
+              Potencial (€)
+              <input id="value" type="number" min="0" step="100" required value="1000" />
+            </label>
+          </div>
+          <label>
+            Próxima tarea
+            <input id="nextTask" placeholder="Ej. Llamar el lunes" />
+          </label>
+          <label>
+            Notas
+            <textarea id="notes" rows="3" placeholder="Información relevante..."></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit" class="btn primary">Guardar</button>
+            <button type="button" id="resetForm" class="btn secondary">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel list-panel" aria-label="Listado de contactos">
+        <div class="list-header">
+          <h2>Pipeline comercial</h2>
+          <div class="filters">
+            <input id="searchInput" placeholder="Buscar por nombre o empresa" />
+            <select id="statusFilter">
+              <option value="all">Todos los estados</option>
+              <option value="lead">Lead</option>
+              <option value="contactado">Contactado</option>
+              <option value="propuesta">Propuesta</option>
+              <option value="cliente">Cliente</option>
+            </select>
+          </div>
+        </div>
+        <ul id="contactList" class="contact-list"></ul>
+      </section>
+    </main>
+
+    <template id="contactTemplate">
+      <li class="contact-card">
+        <div class="card-main">
+          <h3 class="card-name"></h3>
+          <p class="card-company"></p>
+          <p class="card-meta"></p>
+          <p class="card-notes"></p>
+          <span class="badge"></span>
+        </div>
+        <div class="card-actions">
+          <button class="btn mini edit">Editar</button>
+          <button class="btn mini danger delete">Eliminar</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
