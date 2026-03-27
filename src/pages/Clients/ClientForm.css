@@ -1,0 +1,14 @@
+.client-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.client-form-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 500px) {
+  .client-form-grid { grid-template-columns: 1fr; }
+  .client-form-full { grid-column: 1; }
+}

@@ -1,0 +1,68 @@
+.policies-page {}
+
+.policies-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) { .policies-stats { grid-template-columns: repeat(2, 1fr); } }
+
+.pol-stat {
+  padding: 16px 20px;
+}
+
+.pol-stat-label {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.pol-stat-value {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.policies-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+}
+
+.policies-table { overflow-x: auto; }
+
+.policy-type-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+}
+
+.policy-type-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--gray-800);
+}
+
+.policy-cat {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.policy-client-name {
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.btn-icon-danger:hover {
+  background: var(--red-light);
+  color: var(--red);
+  border-color: #fecaca;
+}
